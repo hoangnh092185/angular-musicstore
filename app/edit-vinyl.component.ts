@@ -4,7 +4,7 @@ import { Vinyl } from './vinyl.model';
 @Component ({
   selector: 'edit-vinyl',
   template: `
-    <div *ngIf="childSelectedVinyl">
+    <div *ngIf="childSelectedVinyl" id="edit">
       <h1>Edit Vinyl</h1>
       <div>
        <label>Enter Vinyl Name:</label>
@@ -25,7 +25,7 @@ import { Vinyl } from './vinyl.model';
       <button (click)="doneClicked()">Done</button>
     </div>
   `
-  
+
 })
 
 export class EditVinylComponent {

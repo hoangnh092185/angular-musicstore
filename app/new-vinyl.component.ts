@@ -4,7 +4,7 @@ import { Vinyl } from './vinyl.model';
 @Component ({
   selector: 'new-vinyl',
   template: `
-    <div>
+    <div id="new">
       <div>
         <label>Enter Vinyl Name</label>
         <input #newName>
