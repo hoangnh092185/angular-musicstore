@@ -5,7 +5,7 @@ import { Vinyl }  from './vinyl.model';
   selector: 'my-app',
   template: `
   <div class="jumbotron">
-    <h1>Music Store</h1>
+    <h1>Music Trek: The Vinyl Frontier</h1>
   </div>
   <div class="container">
     <div class="row">
