@@ -6,6 +6,7 @@ import { VinylListComponent } from './vinyl-list.component';
 import { VinylComponent } from './vinyl.component';
 import { EditVinylComponent } from './edit-vinyl.component';
 import { NewVinylComponent } from './new-vinyl.component';
+import { GenrePipe } from './genre.pipe'
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { NewVinylComponent } from './new-vinyl.component';
     VinylComponent,
     EditVinylComponent,
     NewVinylComponent,
+    GenrePipe,
   ],
   bootstrap:    [ AppComponent ]
 })
