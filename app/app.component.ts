@@ -31,7 +31,7 @@ import { Vinyl }  from './vinyl.model';
 
 export class AppComponent {
   public masterVinylList: Vinyl[] = [
-    new Vinyl("Hermitude Album","Hermitude", "something", 0.20),
+    new Vinyl("Hermitude Album","Hermitude", "loudsound", 0.20),
     new Vinyl("SpaceNeighboor Album","SpaceNeighboor", "something", 4.0),
     new Vinyl("Reggae Rocker Album","Reggae Rocker", "reggae", 3.0),
     new Vinyl("The Best of Three Dog Night","Three Dog Night", "rock", 10.0)
