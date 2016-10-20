@@ -5,13 +5,18 @@ import { Vinyl } from './vinyl.model';
   selector: 'vinyl-display',
   template: `
   <div>
-  <label>{{ vinyl.name }}</label>
-  <label>{{ vinyl.band }}</label>
-  <label>{{ vinyl.genre }}</label>
-  <label>{{ vinyl.price }}</label>
+  <input type="checkbox" (click)="toggleBought()"/>
+    <h1>Display name:</h1> {{childVinyl.name}}
+    <h1>Display band:</h1> {{childVinyl.band}}
+    <h1>Display genre:</h1> {{childVinyl.genre}}
+    <h1>Display price:</h1> {{childVinyl.price}}
   </div>
   `
 })
 export class VinylComponent {
-  @Input() vinyl: Vinyl;
+  @Input() childVinyl: Vinyl;
+  toggleBought() {
+    this.childVinyl.bought = true;
+    console.log(this.childVinyl.bought);
+  }
 }

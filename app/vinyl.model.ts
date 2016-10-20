@@ -1,4 +1,4 @@
 export class Vinyl {
-  public done: boolean = false;
+  public bought: boolean = false;
   constructor (public name: string, public band: string, public genre: string, public price: number){ }
 }

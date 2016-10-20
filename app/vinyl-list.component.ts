@@ -4,12 +4,17 @@ import { Vinyl }  from './vinyl.model';
 @Component({
   selector: 'vinyl-list',
   template: `
-  <div class="vinyl"  *ngFor="let currentVinyl of childVinylList | genre: selectedGenre | band: selectedBand">
+  <select (change)="onBoughtChange($event.target.value)" class="bought">
+    <option value="all">Show All</option>
+    <option value="isBought">Bought</option>
+    <option value="notBought">Still on sale</option>
+  </select>
+  <div class="vinyl"  *ngFor="let currentVinyl of childVinylList | genre: selectedGenre | band: selectedBand | bought: selectedBought">
     <div class="album">
-      <h1>Display name:</h1> {{currentVinyl.name}}
-      <h1>Display band:</h1> {{currentVinyl.band}}
-      <h1>Display genre:</h1> {{currentVinyl.genre}}
-      <h1>Display price:</h1> {{currentVinyl.price}}
+    <vinyl-display
+      [childVinyl]="currentVinyl"
+      (clickSender)="showDetails($event)"
+    ></vinyl-display>
     </div>
     <select (change)="onCatChange($event.target.value)" class="genre">
       <option value="all">Show All</option>
@@ -31,6 +36,7 @@ import { Vinyl }  from './vinyl.model';
 export class VinylListComponent {
   public selectedGenre: string="all";
   public selectedBand: string="all";
+  public selectedBought: string="notBought";
   @Input() childVinylList: Vinyl[];
   @Output() clickSender = new EventEmitter();
   editButtonHasBeenClicked(vinylToEdit: Vinyl){
@@ -43,7 +49,12 @@ export class VinylListComponent {
   onBandChange(optionFromMenu){
     this.selectedBand = optionFromMenu;
   }
+  onBoughtChange(optionFromMenu){
+    this.selectedBought = optionFromMenu;
+  }
 }
 
+// <input *ngIf="vinyl.bought === true" type="checkbox" checked (click)="toggleBought(false)"/>
+// <input *ngIf="vinyl.bought === false" type="checkbox" (click)="toggleBought(true)"/>
 
 // <vinyl-display [vinyl]="currentVinyl"></vinyl-display>
